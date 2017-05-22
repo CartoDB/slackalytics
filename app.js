@@ -60,6 +60,8 @@ app.post('/collect', function(req, res){
 	var questionMark = searchM(/\?/g);
 	var elipseCount = searchM(/\.\.\./g);
 	var requestCount = searchM(/\$request/);
+	var hereCount = searchM(/\@here/);
+	var channelCount = searchM(/\@channel/);
 
 
 	//Structure Data
@@ -79,6 +81,8 @@ app.post('/collect', function(req, res){
 		cm5: 	elipseCount, 
 		cm6: 	questionMark, //need to set up in GA
 		cm7:  requestCount,
+		cm8:  hereCount,
+		cm9:  channelCount,
 		dh:		teamDomain+".slack.com",
 		dp:		"/"+channel.name,
 		dt:		"Slack Channel: "+channel.name,
