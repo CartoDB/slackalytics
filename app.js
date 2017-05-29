@@ -55,13 +55,14 @@ app.post('/collect', function(req, res){
 
 
 	var wordCount = searchS(/\s+\b/);
-	var emojiCount = searchM(/:[a-z_0-9]*:/g);
+	var emojiCount = searchM(/:[a-z_0-9_-]*:/g);
 	var exclaCount = searchM(/!/g);
 	var questionMark = searchM(/\?/g);
 	var elipseCount = searchM(/\.\.\./g);
 	var requestCount = searchM(/\$request/);
 	var hereCount = searchM(/\@here/);
 	var channelCount = searchM(/\@channel/);
+	var urgentCount = searchM(/urgent/g);
 
 
 	//Structure Data
@@ -83,6 +84,7 @@ app.post('/collect', function(req, res){
 		cm7:  requestCount,
 		cm8:  hereCount,
 		cm9:  channelCount,
+		cm10: urgentCount,
 		dh:		teamDomain+".slack.com",
 		dp:		"/"+channel.name,
 		dt:		"Slack Channel: "+channel.name,
